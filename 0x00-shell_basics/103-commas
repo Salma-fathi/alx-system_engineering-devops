@@ -1,0 +1,1 @@
+ls -pa | sed ':a;N;$!ba;s/\n/, /g' | sed 's/,$/\n/'
