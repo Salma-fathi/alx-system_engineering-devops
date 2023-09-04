@@ -1,3 +1,2 @@
 #!/bin/bash
-log_file="access.log"
-awk -F'\t' '{count[$1]++} END {for (ip in count) {print ip, count[ip]; if (++i == 11) break}}' "$log_file"
+tail -n+2 | cut -f1 | sort | uniq -c | sort -r -n | head -n11 | rev | cut -d" " -f1 | rev
