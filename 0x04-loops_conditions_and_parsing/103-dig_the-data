@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
+# Bash script that displays the visitor IP along with the HTTP status
+# code from the Apache log file.
 
-# Use awk to parse the Apache log file and print IP and HTTP status code
-awk '{print $1, $9}' /path/to/apache_log_file |
-# Use sort and uniq to count occurrences of IP and HTTP status code combinations
-sort | uniq -c |
-# Use awk to format the output as required and sort by occurrence number
-awk '{print $1, $2, $3}' | sort -nr
+awk '{print $1 " " $9}' apache-access.log | sort | uniq -c | sort -nr
