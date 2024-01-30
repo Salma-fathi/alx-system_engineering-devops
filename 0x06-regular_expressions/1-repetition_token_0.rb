@@ -5,6 +5,6 @@
 # Print the matched string(s)
 
 arg = ARGV[0]
-pattern = /^hb?tn/
+pattern = /hbt{2,5}n/
 match = arg.scan(pattern)
 puts match.join
